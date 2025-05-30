@@ -7,7 +7,7 @@ a while. GBU.
 
 package core
 
-// The domain of a PTMF is a finite set of elements.
+// The domain of a PTF is a finite set of elements.
 type Domain struct {
 	Elements []any
 }
