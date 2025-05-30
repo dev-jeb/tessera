@@ -1,6 +1,5 @@
 # Tessera: Procedural Tile Functions
 
-A formalization and exploration of procedural tile functions over a given domain.
+A formalization and exploration of Procedural Tile Function (PFT) over some given domain.
 
-This repo will be me giving a formal definition in core.go and then exploring
-the space of procedural tile functions over the domain.
+I will give a formal definitiono of PTFs in `core/core.go` and then explore the idea of PTFs to some different domains.
