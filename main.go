@@ -2,22 +2,18 @@ package main
 
 import (
 	"fmt"
-	"tessera/domains/h3_indicies"
+	h3_ptf "tessera/src"
+
+	"github.com/uber/h3-go/v4"
 )
 
 func main() {
-	domain := h3_indicies.NewH3IndexDomain()
-	for i := 0; i < 10; i++ {
-		fmt.Printf("Element %d: %v\n", i, domain.Elements[i])
+	cell := h3.Cell(0x8844d072a3fffff)
+	anchor := h3_ptf.SimplePFT(cell)
+	floor := anchor.Floor()
+	floorJSON, err := floor.ToJSON()
+	if err != nil {
+		panic(err)
 	}
-	codomain := h3_indicies.NewSimplePFT(domain)
-
-	fmt.Printf("Created %d tiles\n", len(codomain.Elements))
-
-	// Show first 3 tiles
-	for i := 0; i < 3 && i < len(codomain.Elements); i++ {
-		tile := codomain.Elements[i]
-		fmt.Printf("\nTile %d:\n", i)
-		fmt.Printf("  Attributes: %v\n", tile.Attributes)
-	}
+	fmt.Println(floorJSON)
 }
