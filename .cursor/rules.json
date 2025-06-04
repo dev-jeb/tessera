@@ -1,0 +1,45 @@
+{
+    "rules": [
+        {
+            "name": "Code Style",
+            "description": "Enforce consistent code style",
+            "pattern": ".*\\.go$",
+            "action": {
+                "type": "format",
+                "style": "gofmt"
+            }
+        },
+        {
+            "name": "Documentation",
+            "description": "Ensure functions have proper documentation",
+            "pattern": ".*\\.go$",
+            "action": {
+                "type": "check",
+                "rule": "function_docs"
+            }
+        },
+        {
+            "name": "Dynamic Rule Learning",
+            "description": "Allow addition of new rules based on user preferences and patterns",
+            "pattern": ".*",
+            "action": {
+                "type": "meta",
+                "capabilities": [
+                    "learn_preferences",
+                    "suggest_rules",
+                    "auto_adapt"
+                ],
+                "triggers": [
+                    "repeated_patterns",
+                    "explicit_preferences",
+                    "code_review_feedback"
+                ],
+                "constraints": {
+                    "require_user_approval": true,
+                    "max_rules_per_session": 3,
+                    "rule_priority": "high"
+                }
+            }
+        }
+    ]
+}
